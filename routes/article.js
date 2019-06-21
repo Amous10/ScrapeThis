@@ -1,5 +1,4 @@
- //from repo   
-//Dependencies
+ //Dependencies
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
@@ -121,4 +120,3 @@ router.post("/delete/:id", function(req, res) {
   
 
 module.exports = router;
-

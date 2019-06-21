@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="navbar fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Mongo Scraper</a>
+    {{!-- <a class="navbar-brand" href="#">Scrape This</a> --}}
     <a class="navbar-brand" href="/">Home</a>
     <a class="navbar-brand" href="/articles/saved">Saved Articles</a>
     <button class="btn float-left" id="scrape">Scrape New Articles</button>
@@ -9,7 +9,7 @@
 
   <div class="bg"></div>
   <div class="jumbotron jumbotron-fluid">
-    <h1>Mongo Scraper</h1>
+    <h1>Scrape This!!</h1>
     <h4>National Public Radio Edition</h4>
   </div>
 
@@ -20,7 +20,7 @@
       <div class="card" id="results">
         <div class="card-header">
             <h6><a class="article-link" target="_blank" rel="noopener noreferrer" href="{{this.link}}">{{this.title}}</a>
-            <a class="btn mt-auto btn-light btn-outline-dark float-right save" data-id="{{this._id}}">Save Article</a></h6>
+            <a class="btn mt-auto btn-light btn-outline-dark float-right save" data-id="{{this._id}}">Save</a></h6>
         </div>
         <div class="card-body flex-column">
           <p class="card-text">{{this.teaser}}</p>

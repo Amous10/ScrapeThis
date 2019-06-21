@@ -79,7 +79,7 @@ router.get("/scrape", function(req, res) {
 		res.send("Scrape Complete");
 	});
 });
-//from repo
+
 //delete route to remove a single article from index
 router.delete("/deleteArticle/:id", function(req,res){
 	db.Article.remove({_id: req.params.id})
