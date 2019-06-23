@@ -10,7 +10,6 @@ var db = require("../models");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// Route for getting 20 articles from the db - need to revisit this logic...we need to stop somewhere but this may not be the best way to handle this
 router.get("/", function(req, res) {
 	db.Article.find({}).sort({created: -1}).limit(20)
 		.then(function(article) {
@@ -21,7 +20,6 @@ router.get("/", function(req, res) {
 		});
 });
 
-// Route for displaying all 20 saved articles, along with their notes, from the db (Saved Articles link)
 router.get("/articles/saved/", function(req, res) {
 	db.Article.find({saved: true}).sort({created: -1}).limit(20).populate("note")
 		.then(function(article) {
@@ -39,6 +37,7 @@ router.get("/scrape", function(req, res) {
 	// First, we grab the body of the html with axios
 	axios.get("https://www.npr.org/").then(function(response) {
 		// Then, we load that into cheerio and save it to $ for a shorthand selector
+		console.log(response.data)
 		var $ = cheerio.load(response.data);
 
 		// Now, we grab every h3 within an article tag, and do the following:

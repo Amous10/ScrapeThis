@@ -1,4 +1,7 @@
 body { background-color: #F2F6D0 }
+nav {
+  background-color: #572957;
+}
 #wrapper {
   width: 960px;
   margin-left: auto;
@@ -10,6 +13,9 @@ body { background-color: #F2F6D0 }
   overflow: auto;
   width: 60%;
   height: 700px;
+}
+.article-link {
+  color: #572957;
 }
 #notes {
   float: right;
