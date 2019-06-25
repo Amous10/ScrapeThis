@@ -35,14 +35,19 @@ router.get("/articles/saved/", function(req, res) {
 // Route for scraping the NPR website (Scrape New Articles button)
 router.get("/scrape", function(req, res) {
 	// First, we grab the body of the html with axios
-	axios.get("https://www.npr.org/").then(function(response) {
+	axios.get("https://www.npr.org/sections/music-news/").then(function(response) {
 		// Then, we load that into cheerio and save it to $ for a shorthand selector
-		console.log(response.data)
+		
 		var $ = cheerio.load(response.data);
-
+		// console.log(response)
 		// Now, we grab every h3 within an article tag, and do the following:
-		$("h3.title").each(function(i, element) {
+		$("h2.title").each(function(i, element) {
 			// Save an empty result object
+			// const title = $(element).text();
+			// const link = $(element).children('a').attr('href');
+			// const teaser = $(element).children('p')
+			// console.log(title,link, teaser); 
+
 			var result = {};
 
 			// var title = $(element).parent().text();
@@ -51,16 +56,19 @@ router.get("/scrape", function(req, res) {
 
 			// Add the text and href of every link, and the teaser, and save them as properties of the result object
 			result.title = $(this)
-				.parent("a")
+				.children("a")
 				.text();
 			result.link = $(this)
-				.parent("a")
+				.children("a")
 				.attr("href");
 			result.teaser = $(this)
 				.parent("a")
 				.siblings("a")
 				.children("p")
 				.text();
+
+			console.log(result.title, result.link, result.teaser); 
+
 
 			// Create a new Article using the `result` object built from scraping
 			db.Article.create(result)

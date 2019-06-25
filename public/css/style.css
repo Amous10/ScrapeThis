@@ -1,6 +1,21 @@
-body { background-color: #F2F6D0 }
+body { background-image: url('../images/concert-photos.jpg')}
 nav {
-  background-color: #572957;
+  background-color: #292521;
+}
+.jumbotron {
+opacity: .8;
+}
+.card-body {
+  opacity: .5;
+  padding: 0px;
+  margin: 10px;
+}
+.card-header {
+  background-color: aliceblue;
+}
+#results.card {
+  margin: 10px;
+  opacity: .9;
 }
 #wrapper {
   width: 960px;
@@ -15,7 +30,7 @@ nav {
   height: 700px;
 }
 .article-link {
-  color: #572957;
+  color: #4b200d;
 }
 #notes {
   float: right;
